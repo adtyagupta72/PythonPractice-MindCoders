@@ -56,9 +56,36 @@ print("Testing commit changes")
 # print(5 not in my_list)
 # print(12 in my_list)
 
-list_1 = ["A", "B", "C"]
-list_2 = list_1
-list_3 = list_2
-del list_1[0]
-del list_2
-print(list_3)
+# list_1 = ["A", "B", "C"]
+# list_2 = list_1
+# list_3 = list_2
+# del list_1[0]
+# del list_2
+# print(list_3)
+
+# row = []
+# for i in range(8):
+#     row.append("WHITE_PAWN")
+
+# row = ["WHITE_PAWN" for i in range(8)]
+# squares = [index ** 2 for index in range(1, 11)]
+# twos = [2 ** index for index in range(8)]
+
+# print(row)
+# print(squares)
+# print(twos)
+
+# squares = [index ** 2 for index in range(1, 11)]
+# odds = [f'{element} Is Odd Number!' for element in squares if element % 2 != 0 ]
+# print(odds)
+
+board = []
+for i in range(8):
+    row = ["EMPTY" for i in range(8)]
+    board.append(row)
+
+#print(board)
+for element in board:
+    print(element)
+
+print(len(board))
