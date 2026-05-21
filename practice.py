@@ -88,4 +88,32 @@ for i in range(8):
 for element in board:
     print(element)
 
-print(len(board))
+# print(len(board))
+
+#print(board[0][0])
+
+board[0][0] = "ROOK"
+board[0][7] = "ROOK"
+board[7][0] = "ROOK"
+board[7][7] = "ROOK"
+
+print("---------------")
+
+for element in board:
+    print(element)
+
+board[0][1] = "KNIGHT"
+board[0][6] = "KNIGHT"
+board[7][1] = "KNIGHT"
+board[7][6] = "KNIGHT"
+
+print("---------------")
+
+for element in board:
+    print(element)
+
+
+temps = [[0.0 for h in range(24)] for d in range(31)]
+for element in temps:
+    print(element)
+
