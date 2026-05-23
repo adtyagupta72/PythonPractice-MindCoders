@@ -149,16 +149,66 @@ print("Testing commit changes")
 #         hot_days += 1
 # print(hot_days, "days were hot days in the month.")
 
-rooms = [[[False for r in range(20)] for f in range(15)] for t in range(3)]
+# rooms = [[[False for r in range(20)] for f in range(15)] for t in range(3)]
 
-print(rooms)
+# print(rooms)
 
-rooms[1][9][13] = True
+# rooms[1][9][13] = True
 
-rooms[1][9][1] = True
+# rooms[1][9][1] = True
 
-vacancy = 0
-for room_number in range(20):
-    if not rooms[1][9][room_number]:
-        vacancy += 1
-print("Vacancy in 3rd 15th floor of 3rd Building", vacancy)
+# vacancy = 0
+# for room_number in range(20):
+#     if not rooms[1][9][room_number]:
+#         vacancy += 1
+# print("Vacancy in 10th Floor, of 3rd Building is: ", vacancy)
+
+# for room_number in range(20):
+#     rooms[0][10][room_number] = True
+
+# rooms[0][10][8] = False
+
+# vacancy = 0
+# for room_number in range(20):
+#     if not rooms[0][10][room_number]:
+#         vacancy += 1
+# print("Vacancy in 11th Floor, of 1st Building is: ", vacancy)
+
+
+# i = 0
+# while i <= 5 :
+#     i += 1
+#     if i % 2 == 0:
+#       break
+#     print("*")
+
+'''
+i (5)           0   1   2
+OP              *   
+'''
+
+# for i in range(1):
+#     print("#")
+# else:
+#     print("#")
+
+# var = 0
+# while var < 6:
+#     var += 1
+#     if var % 2 == 0:
+#         continue
+#     print("#") 
+
+
+
+my_list = [1, 2, 3]
+for v in range(len(my_list)):
+    my_list.insert(1, my_list[v])
+
+print(my_list)
+
+'''
+my_list         [1, 2, 3]   [1, 1, 2, 3]    [1, 1, 1, 1, 2, 3]
+v (3)           0      1    2
+
+'''
