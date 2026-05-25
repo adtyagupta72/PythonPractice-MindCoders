@@ -215,14 +215,29 @@ v (3)           0      1    2
 
 def message():
     print("Enter a value: ")
+    temp = int(input())
+    return temp
 
+print("Step 1")
+a = message()       #Invocation / Calling a function
 
+print("Step 2")
+b = message()
 
-message()       #Invocation / Calling a function
-a = int(input())
+print("Step 3")
+c = message()
 
-message()
-b = int(input())
+print("a:", a)
+print("b:", b)
+print("c:", c)
 
-message()
-c = int(input())
+# def message():
+#     print("Enter a value: ")
+
+# #message = 1
+
+# print("We start here.")
+# print(message)
+# message()
+# print("We end here.") 
+
