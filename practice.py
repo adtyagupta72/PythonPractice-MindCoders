@@ -213,23 +213,23 @@ v (3)           0      1    2
 
 '''
 
-def message():
-    print("Enter a value: ")
-    temp = int(input())
-    return temp
+# def message():
+#     print("Enter a value: ")
+#     temp = int(input())
+#     return temp
 
-print("Step 1")
-a = message()       #Invocation / Calling a function
+# print("Step 1")
+# a = message()       #Invocation / Calling a function
 
-print("Step 2")
-b = message()
+# print("Step 2")
+# b = message()
 
-print("Step 3")
-c = message()
+# print("Step 3")
+# c = message()
 
-print("a:", a)
-print("b:", b)
-print("c:", c)
+# print("a:", a)
+# print("b:", b)
+# print("c:", c)
 
 # def message():
 #     print("Enter a value: ")
@@ -241,3 +241,69 @@ print("c:", c)
 # message()
 # print("We end here.") 
 
+
+# def hi():
+#     print("hi")
+# hi(5)
+
+
+# def hello(n): # defining a function
+#     print("Hello,", n) # body of the function
+
+# name = input("Enter your name: ")
+# hello(name) # calling the function
+
+# def message(number):
+#     print("Enter a number")
+#     number = int(input())
+#     return number
+ 
+
+# number = message(1)
+# print(number) 
+
+# def message(what, number):
+#     print("Enter", what, "number", number)
+ 
+# message("telephone", 11)
+# message(11, "telephone")
+# message("price", 5)
+# message("number", "number")
+
+# def introduction(first_name, last_name):
+#     print("Hello, my name is", first_name, last_name)
+ 
+# introduction("Luke", "Skywalker")
+# introduction("Jesse", "Quick")
+# introduction("Clark", "Kent")
+
+# introduction(first_name = "James", last_name = "Bond")
+# introduction(last_name = "Skywalker", first_name = "Luke")
+# introduction("Skywalker", last_name = "Luke")
+
+
+# def adding(a, b, c):
+#     print(a, "+", b, "+", c, "=", a + b + c)
+
+# adding(1, 2, 3)
+# adding(c = 1, a = 2, b = 3)
+# adding(3, c = 1, b = 2)
+# adding(3, a = 1, b = 2)
+
+# def happy_new_year(wishes = True):
+#     print("Three...")
+#     print("Two...")
+#     print("One...")
+#     if not wishes:
+#         return
+#     print("Happy New Year!")
+
+# happy_new_year(False)
+
+def boring_function():
+    print("'Boredom Mode' ON.")
+    return 123
+
+print("This lesson is interesting!")
+boring_function()
+print("This lesson is boring...")
