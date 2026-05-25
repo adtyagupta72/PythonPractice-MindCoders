@@ -201,14 +201,28 @@ OP              *
 
 
 
-my_list = [1, 2, 3]
-for v in range(len(my_list)):
-    my_list.insert(1, my_list[v])
+# my_list = [1, 2, 3]
+# for v in range(len(my_list)):
+#     my_list.insert(1, my_list[v])
 
-print(my_list)
+# print(my_list)
 
 '''
 my_list         [1, 2, 3]   [1, 1, 2, 3]    [1, 1, 1, 1, 2, 3]
 v (3)           0      1    2
 
 '''
+
+def message():
+    print("Enter a value: ")
+
+
+
+message()       #Invocation / Calling a function
+a = int(input())
+
+message()
+b = int(input())
+
+message()
+c = int(input())
