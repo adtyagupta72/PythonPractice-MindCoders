@@ -333,13 +333,40 @@ v (3)           0      1    2
 # print(list_sum(2))
 
 
-def strange_list_fun(n):
-    strange_list = []
+# def strange_list_fun(n):
+#     strange_list = []
     
-    for i in range(0, n):
-        #strange_list.insert(0, i+1)
-        strange_list.append(i+1)
+#     for i in range(0, n):
+#         #strange_list.insert(0, i+1)
+#         strange_list.append(i+1)
     
-    return strange_list
+#     return strange_list
 
-print(strange_list_fun(5))
+# print(strange_list_fun(5))
+
+# def scope_test():
+#     x = 123
+# scope_test()
+# print(x)
+
+# def my_function():
+#     print("Do I know that variable?", var)
+
+# var = 1
+# my_function()
+# print(var)
+
+# def mult(x):
+#     var = 7
+#     return x * var 
+# var = 3
+# print(mult(7))
+
+def my_function():
+    global var
+    var = 2
+    print("Do I know that variable?", var)
+
+var = 1
+my_function()
+print(var)
