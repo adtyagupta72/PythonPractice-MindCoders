@@ -436,10 +436,21 @@ op  5   4   3   2   1   0
 
 # 5! = 5, 4, 3, 2, 1 = 120
 
-def factorial(number):
-    if number <= 0:
-        return 1
-    else:
-        return number * factorial(number - 1)
+# def factorial(number):
+#     if number <= 0:
+#         return 1
+#     else:
+#         return number * factorial(number - 1)
 
-print(factorial(5))
+# print(factorial(5))
+
+my_tuple = (1, 10, 100)
+
+t1 = my_tuple + (1000, 10000)
+t2 = my_tuple * 3
+
+print(len(t2))
+print(t1)
+print(t2)
+print(10 in my_tuple)
+print(-10 not in my_tuple)
