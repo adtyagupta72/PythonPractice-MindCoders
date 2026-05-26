@@ -391,13 +391,55 @@ v (3)           0      1    2
 # my_function(var)
 # print(var)
 
-def my_function(my_list_1):
-    print("Print #1:", my_list_1)
-    print("Print #2:", my_list_2)
-    my_list_1 = [0, 1]
-    print("Print #3:", my_list_1)
-    print("Print #4:", my_list_2)
+# def my_function(my_list_1):
+#     print("Print #1:", my_list_1)
+#     print("Print #2:", my_list_2)
+#     my_list_1 = [0, 1]
+#     print("Print #3:", my_list_1)
+#     print("Print #4:", my_list_2)
  
-my_list_2 = [2, 3]
-my_function(my_list_2)
-print("Print #5:", my_list_2)
+# my_list_2 = [2, 3]
+# my_function(my_list_2)
+# print("Print #5:", my_list_2)
+
+# def my_function(my_list_1):
+#     print("Print #1:", my_list_1)
+#     print("Print #2:", my_list_2)
+#     del my_list_1[0] # Pay attention to this line.
+#     print("Print #3:", my_list_1)
+#     print("Print #4:", my_list_2)
+ 
+
+# my_list_2 = [2, 3]
+# my_function(my_list_2)
+# print("Print #5:", my_list_2)
+
+# def countDown(number):
+#     print(number)
+#     if number == 0:
+#         return
+#     else:
+#         print("Going in rec:",  number)
+#         countDown(number -1)
+#         print("Out of rec:",  number)
+
+# print("Starting Recursion")
+# countDown(5)
+# print("Completed Recursion")
+
+'''
+cd  1   2   3   4   5   6
+n   5   4   3   2   1   0
+op  5   4   3   2   1   0
+
+'''
+
+# 5! = 5, 4, 3, 2, 1 = 120
+
+def factorial(number):
+    if number <= 0:
+        return 1
+    else:
+        return number * factorial(number - 1)
+
+print(factorial(5))
