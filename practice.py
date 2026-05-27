@@ -554,12 +554,23 @@ op  5   4   3   2   1   0
 # item = pol_eng_dictionary["zamek"]
 # print(item)
 
-phonebook = {} # an empty dictionary
+# phonebook = {} # an empty dictionary
  
-print(phonebook)
-phonebook["Adam"] = 3456783958 # create/add a key-value pair
-print(phonebook) # outputs: {'Adam': 3456783958}
+# print(phonebook)
+# phonebook["Adam"] = 3456783958 # create/add a key-value pair
+# print(phonebook) # outputs: {'Adam': 3456783958}
  
-del phonebook["Adam"]
-print(phonebook)
+# del phonebook["Adam"]
+# print(phonebook)
 
+
+pol_eng_dictionary = {"kwiat": "flower"}
+ 
+pol_eng_dictionary.update(
+    {
+        "gleba": "soil"
+    })
+print(pol_eng_dictionary) # outputs: {'kwiat': 'flower', 'gleba': 'soil'}
+ 
+pol_eng_dictionary.popitem()
+print(pol_eng_dictionary)
