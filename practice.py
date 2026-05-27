@@ -486,17 +486,46 @@ op  5   4   3   2   1   0
 # tup = tuple(my_list)
 # print(tup) # outputs: (2, 4, 6)
 # print(type(tup)) # outputs: <class 'tuple'>
-var = 123
+# var = 123
  
-t1 = (1, )
-t2 = (2, )
-t3 = (3, var)
+# t1 = (1, )
+# t2 = (2, )
+# t3 = (3, var)
  
-t1, t2, t3 = t2, t3, t1
+# t1, t2, t3 = t2, t3, t1
  
-print(t1, t2, t3)
-print(type(t1), type(t2), type(t3))
+# print(t1, t2, t3)
+# print(type(t1), type(t2), type(t3))
 
+dictionary = {
+"cat": "chat", 
+"dog": "chien", 
+"horse": "cheval"
+}
+phone_numbers = {'boss': 5551234567, 'Suzy': 22657854310}
+empty_dictionary = {}
+ 
+print(dictionary)
+print(type(dictionary))
+print(phone_numbers)
+print(type(phone_numbers))
+print(empty_dictionary)
+print(type(empty_dictionary))
 
+print(dictionary['cat'])
+print(phone_numbers['Suzy'])
+#print(phone_numbers['president'])
 
+words = ['cat', 'lion', 'horse']
+ 
+for word in words:
+    if word in dictionary:
+        print(word, "->", dictionary[word])
+    else:
+        print("-----",word, "is not in dictionary", "-----")
+
+print(dictionary.keys())
+
+for key in dictionary.keys():
+    print(key, "->", dictionary[key])
 
