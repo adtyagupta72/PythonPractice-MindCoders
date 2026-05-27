@@ -497,35 +497,69 @@ op  5   4   3   2   1   0
 # print(t1, t2, t3)
 # print(type(t1), type(t2), type(t3))
 
-dictionary = {
-"cat": "chat", 
-"dog": "chien", 
-"horse": "cheval"
-}
-phone_numbers = {'boss': 5551234567, 'Suzy': 22657854310}
-empty_dictionary = {}
+# dictionary = {
+# "cat": "chat", 
+# "dog": "chien", 
+# "horse": "cheval"
+# }
+# phone_numbers = {'boss': 5551234567, 'Suzy': 22657854310}
+# empty_dictionary = {}
  
-print(dictionary)
-print(type(dictionary))
-print(phone_numbers)
-print(type(phone_numbers))
-print(empty_dictionary)
-print(type(empty_dictionary))
+# print(dictionary)
+# print(type(dictionary))
+# print(phone_numbers)
+# print(type(phone_numbers))
+# print(empty_dictionary)
+# print(type(empty_dictionary))
 
-print(dictionary['cat'])
-print(phone_numbers['Suzy'])
-#print(phone_numbers['president'])
+# print(dictionary['cat'])
+# print(phone_numbers['Suzy'])
+# #print(phone_numbers['president'])
 
-words = ['cat', 'lion', 'horse']
+# words = ['cat', 'lion', 'horse']
  
-for word in words:
-    if word in dictionary:
-        print(word, "->", dictionary[word])
-    else:
-        print("-----",word, "is not in dictionary", "-----")
+# for word in words:
+#     if word in dictionary:
+#         print(word, "->", dictionary[word])
+#     else:
+#         print("-----",word, "is not in dictionary", "-----")
 
-print(dictionary.keys())
+# print(dictionary.keys())
 
-for key in dictionary.keys():
-    print(key, "->", dictionary[key])
+# for key in dictionary.keys():
+#     print(key, "->", dictionary[key])
+
+# print(dictionary.items())
+
+# for key, value in dictionary.items():
+#     print(key, "->", value)
+
+# print(dictionary.values())
+
+# for value in dictionary.values():
+#     print(value)
+
+
+# pol_eng_dictionary = {
+#     "zamek": "castle",
+#     "woda": "water",
+#     "gleba": "soil"
+#     }
+# print("pol_eng_dictionary: ", pol_eng_dictionary)
+# copy_dictionary = pol_eng_dictionary.copy()
+
+# print("copy_dictionary: ",copy_dictionary)
+
+# pol_eng_dictionary["zamek"] = "lock"
+# item = pol_eng_dictionary["zamek"]
+# print(item)
+
+phonebook = {} # an empty dictionary
+ 
+print(phonebook)
+phonebook["Adam"] = 3456783958 # create/add a key-value pair
+print(phonebook) # outputs: {'Adam': 3456783958}
+ 
+del phonebook["Adam"]
+print(phonebook)
 
