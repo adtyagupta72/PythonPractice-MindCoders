@@ -564,13 +564,74 @@ op  5   4   3   2   1   0
 # print(phonebook)
 
 
-pol_eng_dictionary = {"kwiat": "flower"}
+# pol_eng_dictionary = {"kwiat": "flower"}
  
-pol_eng_dictionary.update(
-    {
-        "gleba": "soil"
-    })
-print(pol_eng_dictionary) # outputs: {'kwiat': 'flower', 'gleba': 'soil'}
+# pol_eng_dictionary.update(
+#     {
+#         "gleba": "soil"
+#     })
+# print(pol_eng_dictionary) # outputs: {'kwiat': 'flower', 'gleba': 'soil'}
  
-pol_eng_dictionary.popitem()
-print(pol_eng_dictionary)
+# pol_eng_dictionary.popitem()
+# print(pol_eng_dictionary)
+
+# pol_eng_dictionary = {
+#     "zamek": "castle",
+#     "woda": "water",
+#     "gleba": "soil"
+#     }
+ 
+# if "zamek1" in pol_eng_dictionary:
+#    print("Yes! zamek1 is present in the Dictionary")
+# else:
+#    print("No! zamek1 is not present in the Dictionary")
+
+# print(pol_eng_dictionary)
+# print(len(pol_eng_dictionary))
+
+# del pol_eng_dictionary["zamek"]
+# print(pol_eng_dictionary)
+# print(len(pol_eng_dictionary))
+ 
+# pol_eng_dictionary.clear()
+# print(pol_eng_dictionary)
+# print(len(pol_eng_dictionary))
+ 
+# del pol_eng_dictionary
+# print(pol_eng_dictionary)
+
+# dictionary = {"cat": "chat", "dog": "chien", "horse": "cheval"}
+ 
+# dictionary.update({"duck": "canard"})
+# print(dictionary)
+
+sd = {}
+
+# name = input("Enter Student's name:")
+# print(name)
+
+while True:
+    name = input("Enter Students name:")
+    if name == "":
+        break
+    score = int(input(f"Enter ${name}'s score:"))
+
+    if score not in range(1,11):
+        break
+    if name in sd:
+        sd[name] += (score, )
+    else:
+        sd[name] = (score, )
+
+# for mark in sd:
+#     print(mark)
+
+print(sd)
+
+for name, mark in sd.items():
+    sum = 0
+    # print(name,"->")
+    for m in mark:
+        # print(m)
+        sum += m
+    print(name, "-> ", sum/len(mark))
