@@ -607,14 +607,11 @@ op  5   4   3   2   1   0
 
 sd = {}
 
-# name = input("Enter Student's name:")
-# print(name)
-
 while True:
     name = input("Enter Students name:")
     if name == "":
         break
-    score = int(input(f"Enter ${name}'s score:"))
+    score = int(input(f"Enter {name}'s score:"))
 
     if score not in range(1,11):
         break
@@ -623,15 +620,10 @@ while True:
     else:
         sd[name] = (score, )
 
-# for mark in sd:
-#     print(mark)
-
 print(sd)
 
 for name, mark in sd.items():
     sum = 0
-    # print(name,"->")
     for m in mark:
-        # print(m)
         sum += m
     print(name, "-> ", sum/len(mark))
