@@ -605,25 +605,44 @@ op  5   4   3   2   1   0
 # dictionary.update({"duck": "canard"})
 # print(dictionary)
 
-sd = {}
+# sd = {}
 
-while True:
-    name = input("Enter Students name:")
-    if name == "":
-        break
-    score = int(input(f"Enter {name}'s score:"))
+# while True:
+#     name = input("Enter Students name:")
+#     if name == "":
+#         break
+#     score = int(input(f"Enter {name}'s score:"))
 
-    if score not in range(1,11):
-        break
-    if name in sd:
-        sd[name] += (score, )
-    else:
-        sd[name] = (score, )
+#     if score not in range(1,11):
+#         break
+#     if name in sd:
+#         sd[name] += (score, )
+#     else:
+#         sd[name] = (score, )
 
-print(sd)
+# print(sd)
 
-for name, mark in sd.items():
-    sum = 0
-    for m in mark:
-        sum += m
-    print(name, "-> ", sum/len(mark))
+# for name, mark in sd.items():
+#     sum = 0
+#     for m in mark:
+#         sum += m
+#     print(name, "-> ", sum/len(mark))
+
+class ExampleClass:
+    def __init__(self, val = 1):
+        self.first = val
+ 
+    def set_second(self, val):
+        self.second = val
+
+example_object_1 = ExampleClass()
+example_object_2 = ExampleClass(2)
+example_object_2.set_second(3)
+example_object_3 = ExampleClass(4)
+example_object_3.third = 5
+
+print(example_object_1)
+
+print(example_object_1.__dict__)
+print(example_object_2.__dict__)
+print(example_object_3.__dict__)
