@@ -651,9 +651,26 @@ op  5   4   3   2   1   0
 # print(example_object_3.__dict__)
 # example_object_3.example_method()
 
-class Classy:
-    def method(self, par):
-        print("method", par)
+# class Classy:
+#     def method(self, par):
+#         print("method", par)
 
-obj = Classy()
-obj.method(1)
+# obj = Classy()
+# obj.method(1)
+
+# class Classy:
+#     varia = 2
+#     def method(self):
+#         print(self.varia, self.var)
+
+# obj = Classy()
+# obj.var = 3
+# obj.method()
+
+class Star:
+    def __init__(self, name, galaxy):
+        self.name = name
+        self.galaxy = galaxy
+
+sun = Star("Sun", "Milky Way")
+print(sun)
