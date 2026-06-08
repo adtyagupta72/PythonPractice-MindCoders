@@ -685,9 +685,16 @@ class ExampleClass:
         else:
             self.b = 1
 
-example_object = ExampleClass(6)
-print(example_object.a)
-print(example_object.b)
+example_object = ExampleClass(2)
+
+try:
+    print("a = ",example_object.a)
+except AttributeError:
+    try:
+        print("b = ",example_object.b)
+    except AttributeError:
+        print("The error has occured! Sliently passing it!")
+
 
 
 # example_object_1 = ExampleClass()
