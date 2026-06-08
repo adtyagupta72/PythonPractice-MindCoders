@@ -675,27 +675,27 @@ op  5   4   3   2   1   0
 # sun = Star("Sun", "Milky Way")
 # print(sun)
 
-class ExampleClass:
-    counter = 0
-    a = 1
-    def __init__(self, val = 1):
-        #self.__first = val
-        ExampleClass.counter += 1
-        if val % 2 != 0:
-            self.a = 1
-        else:
-            self.b = 1
+# class ExampleClass:
+#     counter = 0
+#     a = 1
+#     def __init__(self, val = 1):
+#         #self.__first = val
+#         ExampleClass.counter += 1
+#         if val % 2 != 0:
+#             self.a = 1
+#         else:
+#             self.b = 1
 
-example_object = ExampleClass(1)
+# example_object = ExampleClass(1)
 
-if hasattr(example_object, 'a'):
-    print("a = ", example_object.a)
+# if hasattr(example_object, 'a'):
+#     print("a = ", example_object.a)
 
-if hasattr(example_object, 'b'):
-    print("b = ", example_object.b)
+# if hasattr(example_object, 'b'):
+#     print("b = ", example_object.b)
 
-print(hasattr(ExampleClass, 'b'))   #
-print(hasattr(ExampleClass, 'a'))   #
+# print(hasattr(ExampleClass, 'b'))   #
+# print(hasattr(ExampleClass, 'a'))   #
 
 
 # try:
@@ -716,3 +716,74 @@ print(hasattr(ExampleClass, 'a'))   #
 # print(example_object_2.__dict__, example_object_2.counter)
 # print(example_object_3.__dict__, example_object_3.counter)
 
+# class Python:
+#     population = 1
+#     victims = 0
+#     def __init__(self):
+#         self.length_ft = 3
+#         self.__venomous = False
+
+# myObj = Python()
+# print("myObj.population: ", myObj.population)
+# print("myObj.victims: ", myObj.victims)
+# print("myObj.length_ft: ", myObj.length_ft)
+# print("myObj.__venomous: ", myObj._Python__venomous)###
+# print("myObj.venomous: ", myObj.venomous)
+
+# class Classy:
+#     def visible(self):
+#         print("visible")
+    
+#     def __hidden(self):
+#         print("hidden")
+
+# obj = Classy()
+# obj.visible()               # Output: visible
+# try:
+#     obj.__hidden()          # This fails
+# except:
+#     print("failed")         # Output: failed
+# obj._Classy__hidden()       # Output: hidden
+
+# obj = Classy()
+# print(type(obj))
+# print(type(obj).__name__)
+
+# class Vehicle:
+#     pass
+
+# class LandVehicle(Vehicle):
+#     pass
+
+# class TrackedVehicle(LandVehicle):
+#     pass
+
+# my_vehicle = Vehicle()
+# my_land_vehicle = LandVehicle()
+# my_tracked_vehicle = TrackedVehicle()
+
+# for obj in [my_vehicle, my_land_vehicle, my_tracked_vehicle]:
+#     for cls in [Vehicle, LandVehicle, TrackedVehicle]:
+#         print(isinstance(obj, cls), end="\t")
+#     print()
+
+
+class SampleClass:
+    def __init__(self, val):
+        self.val = val
+
+object_1 = SampleClass(0)
+object_2 = SampleClass(2)
+object_3 = object_1
+object_3.val += 1
+
+print(object_1 is object_2)
+print(object_2 is object_3)
+print(object_3 is object_1)
+print(object_1.val, object_2.val, object_3.val)
+
+string_1 = "Mary had a little "
+string_2 = "Mary had a little lamb"
+string_1 += "lamb"
+
+print(string_1 == string_2, string_1 is string_2)
