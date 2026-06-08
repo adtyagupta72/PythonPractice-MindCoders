@@ -677,6 +677,7 @@ op  5   4   3   2   1   0
 
 class ExampleClass:
     counter = 0
+    a = 1
     def __init__(self, val = 1):
         #self.__first = val
         ExampleClass.counter += 1
@@ -685,15 +686,25 @@ class ExampleClass:
         else:
             self.b = 1
 
-example_object = ExampleClass(2)
+example_object = ExampleClass(1)
 
-try:
-    print("a = ",example_object.a)
-except AttributeError:
-    try:
-        print("b = ",example_object.b)
-    except AttributeError:
-        print("The error has occured! Sliently passing it!")
+if hasattr(example_object, 'a'):
+    print("a = ", example_object.a)
+
+if hasattr(example_object, 'b'):
+    print("b = ", example_object.b)
+
+print(hasattr(ExampleClass, 'b'))   #
+print(hasattr(ExampleClass, 'a'))   #
+
+
+# try:
+#     print("a = ",example_object.a)
+# except AttributeError:
+#     try:
+#         print("b = ",example_object.b)
+#     except AttributeError:
+#         print("The error has occured! Sliently passing it!")
 
 
 
