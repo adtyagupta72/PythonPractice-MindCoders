@@ -867,18 +867,26 @@ op  5   4   3   2   1   0
 # one.doanything()  # Output: do_it from One
 # two.doanything()
 
-def reciprocal(n):
-    try:
-        n = 1 / n
-    except ZeroDivisionError:
-        print("Division failed")
-        return None
-    else:
-        print("Everything went fine")
-        return n
+# def reciprocal(n):
+#     try:
+#         n = 1 / n
+#     except ZeroDivisionError:
+#         print("Division failed")
+#         n = None
+#     else:
+#         print("Everything went fine")
+#     finally:
+#         print("It's time to say goodbye")
+#         return n
 
-print("------------")
-print("reciprocal(2): ", reciprocal(2))  # Uses else branch
-print("------------")
-print("reciprocal(0): ", reciprocal(0))
-print("------------")
+# print("------------")
+# print("reciprocal(2): ", reciprocal(2))  # Uses else branch
+# print("------------")
+# print("reciprocal(0): ", reciprocal(0))
+# print("------------")
+
+try:
+    i = int("Hello!")
+except Exception as e:
+    print(e)
+    print(e.__str__())
