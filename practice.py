@@ -902,14 +902,72 @@ op  5   4   3   2   1   0
 
 # print_exception_tree(BaseException)
 
-class MyZeroDivisionError(ZeroDivisionError):    
-    pass
+# class MyZeroDivisionError(ZeroDivisionError):    
+#     pass
  
-def do_the_division(mine):
-    if mine:
-        raise MyZeroDivisionError("some worse news")
-    else:        
-        raise ZeroDivisionError("some bad news")
+# def do_the_division(mine):
+#     if mine:
+#         raise MyZeroDivisionError("some worse news")
+#     else:        
+#         raise ZeroDivisionError("some bad news")
 
-do_the_division(False)
-do_the_division(True)
+# do_the_division(False)
+# do_the_division(True)
+
+# city = 'Bhopal'
+# print(city[0])
+# print(city[2])
+
+# print(city[-1])
+# print(city[5])
+
+# print(city[-3]) 
+# print(city[3]) 
+
+# name = 'Priya Sharma'
+# print(name[0:5])   # Priya  (index 0 to 4)
+# print(name[6:])    # Sharma (from index 6 to end)
+# print(name[:5])    # Priya  (from start to index 4)
+# print(name[::2])   # Pay hr  (every 2nd character)
+# print(name[::-1])  # amrahS ayirP  (reversed!)
+ 
+# # Length of string
+# print(len(city))   # 6
+# print(len(name))
+
+text = '  Hello Python World!  '
+# Case
+# print(text.upper())           # '  HELLO PYTHON WORLD!  '
+# print(text.lower())           # '  hello python world!  '
+# print(text.title())           # '  Hello Python World!  '
+# print(text.capitalize())      # '  hello python world!  ' → first only
+ 
+# # Strip whitespace
+# print(text.strip())           # 'Hello Python World!'
+ 
+# # Search
+# print('Python' in text)       # True
+# print(text.find('Python'))    # 8  (index where found, -1 if not found)
+# print(text.count('l'))   
+
+# Replace
+print(text.replace('Python', 'AI'))  # '  Hello AI World!  '
+ 
+# Split and Join
+csv = 'Rahul,22,Bhopal,Engineer'
+parts = csv.split(',')        # ['Rahul', '22', 'Bhopal', 'Engineer']
+print(parts)
+print(parts[0])               # Rahul
+rejoined = ' | '.join(parts)  # 'Rahul | 22 | Bhopal | Engineer'
+print(rejoined)
+ 
+# Check content
+print('hello123'.isalnum())   # True — all letters/digits
+print('12345'.isdigit())      # True — all digits
+print('Python'.isalpha())     # True — all letters
+print('  '.isspace())         # True — all spaces
+
+# Start/end check
+email = 'student@gmail.com'
+print(email.endswith('.com'))  # True
+print(email.startswith('stu')) # True
