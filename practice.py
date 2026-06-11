@@ -1025,14 +1025,38 @@ text = '  Hello Python World!  '
 #         print(f'{name:<15} | {marks:>5} | {city}')
 #         print("------------")
 
-import csv
+# import csv
 
-records = [
-    ['Name','Marks','City','Grade'],
-    ['Rahul',85,'Bhopal','B'],
-    ['Priya',92,'Indore','A'],
-    ['Amit',73,'Jabalpur','B'],
-]
-with open('students.csv','w',newline='') as f:
-    csv.writer(f).writerows(records)
+# records = [
+#     ['Name','Marks','City','Grade'],
+#     ['Rahul',85,'Bhopal','B'],
+#     ['Priya',92,'Indore','A'],
+#     ['Amit',73,'Jabalpur','B']
+# ]
+# with open('students.csv','w',newline='') as f:
+#     csv.writer(f).writerows(records)
+
+# name = input("Enter Student Name for Search:")
+
+# found = False
+
+# with open('students.csv','r') as f:
+#     for row in csv.DictReader(f):
+#         if row["Name"] == name:
+#             print(f'Found {name}')
+#             print(f'{row["Name"]}: {row["Marks"]} marks ({row["City"]})')
+#             found = True
+#             break
+
+# if not found:
+#     print("Student Not found!!")
+
+import numpy as np
+
+arr1d = np.array([1, 2, 3, 4, 5])
+arr2d = np.array([[85,90,78],[72,88,95],[91,76,83]])  # 3 students x 3 subjects
+ 
+print(arr2d.shape)     # (3, 3)
+print(arr2d.dtype)     # int64
+print(arr2d.ndim)      # 2 (2-dimensional)
 
