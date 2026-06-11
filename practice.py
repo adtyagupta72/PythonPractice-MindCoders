@@ -951,23 +951,88 @@ text = '  Hello Python World!  '
 # print(text.count('l'))   
 
 # Replace
-print(text.replace('Python', 'AI'))  # '  Hello AI World!  '
+# print(text.replace('Python', 'AI'))  # '  Hello AI World!  '
  
 # Split and Join
-csv = 'Rahul,22,Bhopal,Engineer'
-parts = csv.split(',')        # ['Rahul', '22', 'Bhopal', 'Engineer']
-print(parts)
-print(parts[0])               # Rahul
-rejoined = ' | '.join(parts)  # 'Rahul | 22 | Bhopal | Engineer'
-print(rejoined)
+# csv = 'Rahul,22,Bhopal,Engineer'
+# parts = csv.split(',')        # ['Rahul', '22', 'Bhopal', 'Engineer']
+# print(parts)
+# print(parts[0])               # Rahul
+# rejoined = ' | '.join(parts)  # 'Rahul | 22 | Bhopal | Engineer'
+# print(rejoined)
  
-# Check content
-print('hello123'.isalnum())   # True — all letters/digits
-print('12345'.isdigit())      # True — all digits
-print('Python'.isalpha())     # True — all letters
-print('  '.isspace())         # True — all spaces
+# # Check content
+# print('hello123'.isalnum())   # True — all letters/digits
+# print('12345'.isdigit())      # True — all digits
+# print('Python'.isalpha())     # True — all letters
+# print('  '.isspace())         # True — all spaces
 
-# Start/end check
-email = 'student@gmail.com'
-print(email.endswith('.com'))  # True
-print(email.startswith('stu')) # True
+# # Start/end check
+# email = 'student@gmail.com'
+# print(email.endswith('.com'))  # True
+# print(email.startswith('stu')) # True
+
+# name, marks, rank = 'Anita', 92.567, 3
+ 
+# # Basic
+# print(f'Hello, {name}!')
+ 
+# # Format numbers
+# print(f'Marks: {marks:.2f}')       # 92.57 (2 decimal places)
+# print(f'Marks: {marks:.0f}')       # 93    (rounded)
+# print(f'Count: {1000000:,}')       # 1,000,000 (comma separator)
+ 
+# # Padding and alignment
+# print(f'{name:<15}|{marks:>8.2f}|Rank:{rank}')  # left/right align
+# print(f'hello {name:^10}')
+# print(f'hello {name:>10}')
+# print(f'hello {name:<10}')
+# print(f'hello {name:*^11}')
+# # Anita          |   92.57|Rank:3
+ 
+# # Expressions inside {}
+# price, gst = 500, 0.18
+# print(f'Price:Rs.{price} | GST:Rs.{price*gst:.2f} | Total:Rs.{price*(1+gst):.2f}')
+
+# string = "Hello, How are you doing today?"
+# Count vowels in the string
+# Print you from the string
+# Print the string in reverse order
+# non_palin, palin = "abcdef", "axttxa"
+# check if the string is palindrome or not
+
+# with open("data.txt", "r") as file: 
+#     data = file.read()
+
+# print(data)
+
+
+# with open('students.txt', 'w') as f:
+#     f.write('Rahul Sharma,85,Bhopal\n')
+#     f.write('Priya Verma,92,Indore\n')
+#     f.write('Amit Kumar,73,Jabalpur\n')
+
+# with open('students.txt', 'a') as f:
+#     f.write('Sneha Joshi,88,Bhopal\n')
+
+# with open('students.txt', 'r') as f:
+#     content = f.read()
+# print(content)
+
+# with open('students.txt', 'r') as f:
+#     for line in f:
+#         name, marks, city = line.strip().split(',')
+#         print(f'{name:<15} | {marks:>5} | {city}')
+#         print("------------")
+
+import csv
+
+records = [
+    ['Name','Marks','City','Grade'],
+    ['Rahul',85,'Bhopal','B'],
+    ['Priya',92,'Indore','A'],
+    ['Amit',73,'Jabalpur','B'],
+]
+with open('students.csv','w',newline='') as f:
+    csv.writer(f).writerows(records)
+
