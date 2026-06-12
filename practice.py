@@ -1051,24 +1051,67 @@ text = '  Hello Python World!  '
 # if not found:
 #     print("Student Not found!!")
 
-import numpy as np
+# import numpy as np
 
-arr1d = np.array([1, 2, 3, 4, 5])
-arr2d = np.array([[85,90,78],[72,88,95],[91,76,83]])  # 3 students x 3 subjects
+# arr1d = np.array([1, 2, 3, 4, 5])
+# arr2d = np.array([[85,90,78],[72,88,95],[91,76,83]])  # 3 students x 3 subjects
  
-print(arr2d.shape)     # (3, 3)
-print(arr2d.dtype)     # int64
-print(arr2d.ndim)      # 2 (2-dimensional)
+# print(arr2d.shape)     # (3, 3)
+# print(arr2d.dtype)     # int64
+# print(arr2d.ndim)      # 2 (2-dimensional)
 
-zeros = np.zeros((3,4))           		# 3x4 array of 0s
-print(zeros)
-ones  = np.ones((2,5))            		# 2x5 array of 1s
-print(ones)
-rng   = np.arange(0,50,5)         		# [0,5,10,15,...,45]
-print(rng)
+# zeros = np.zeros((3,4))
+# # 3x4 array of 0s
+# print(zeros)
+# ones  = np.ones((2,5))            		
+# # 2x5 array of 1s
+# print(ones)
+# rng   = np.arange(0,50,5)         		
+# # [0,5,10,15,...,45]
+# print(rng)
 
-lin   = np.linspace(0,1,11)
-print(lin)
+# lin   = np.linspace(0,1,11)
+# print(lin)
 
-random  = np.random.randint(40,100,(5,3))
-print(random)
+# random  = np.random.randint(40,100,(5,3))
+# print(random)
+
+# arr = np.array([10,20,30,40,50])
+
+# print(arr * 2)        # [20 40 60 80 100]
+
+# print(arr + 5)        # [15 25 35 45 55]
+
+# print(arr ** 2)       # [100 400 900 1600 2500]
+
+# marks_2d = np.array([[85,90,78],[72,88,95],[91,76,83]])
+
+# print(np.mean(marks_2d))           # Overall mean
+
+# print(np.mean(marks_2d, axis=1))   # Mean per student (row)
+
+# print(np.mean(marks_2d, axis=0))   # Mean per subject (column)
+
+# print(np.max(marks_2d))            # Highest mark
+
+# print(np.std(marks_2d))            # Standard deviation
+
+# arr = np.array([55,82,43,91,67,78,35,88])
+
+# print(arr[arr > 70])   # [82 91 78 88] — only values > 70
+
+import pandas as pd
+
+data = {
+    'Name':   ['Rahul','Priya','Amit','Sneha','Vikram'],
+    'Age':    [22, 21, 23, 20, 24],
+    'Marks':  [85, 92, 78, 88, 73],
+    'City':   ['Bhopal','Indore','Bhopal','Jabalpur','Indore'],
+}
+df = pd.DataFrame(data)
+print(df)
+# Explore the data
+print(df.shape)          # (5, 4) — 5 rows, 4 columns
+print(df.head(3))        # First 3 rows
+print(df.dtypes)         # Data type of each column
+print(df.describe())     # Statistical summary
