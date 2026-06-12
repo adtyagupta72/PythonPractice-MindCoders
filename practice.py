@@ -1060,3 +1060,15 @@ print(arr2d.shape)     # (3, 3)
 print(arr2d.dtype)     # int64
 print(arr2d.ndim)      # 2 (2-dimensional)
 
+zeros = np.zeros((3,4))           		# 3x4 array of 0s
+print(zeros)
+ones  = np.ones((2,5))            		# 2x5 array of 1s
+print(ones)
+rng   = np.arange(0,50,5)         		# [0,5,10,15,...,45]
+print(rng)
+
+lin   = np.linspace(0,1,11)
+print(lin)
+
+random  = np.random.randint(40,100,(5,3))
+print(random)
