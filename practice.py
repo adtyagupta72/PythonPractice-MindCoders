@@ -1111,15 +1111,46 @@ data = {
 df = pd.DataFrame(data)
 print(df)
 # Explore the data
-print(df.shape)          # (5, 4) — 5 rows, 4 columns
-print(df.head(3))        # First 3 rows
-print(df.dtypes)         # Data type of each column
-print(df.describe())     # Statistical summary
+# print(df.shape)          # (5, 4) — 5 rows, 4 columns
+# print(df.head(3))        # First 3 rows
+# print(df.dtypes)         # Data type of each column
+# print(df.describe())     # Statistical summary
 
 # Select columns
-print("df['Name']: \n", df['Name'])                   # Single column → Series
-print(df[['Name', 'Marks']])        # Multiple → DataFrame
+# print("df['Name']: \n", df['Name'])                   # Single column → Series
+# print(df[['Name', 'Marks']])        # Multiple → DataFrame
  
-# # Filter rows
-print(df[df['Marks'] >= 85])        # High scorers
-print(df[df['City'] == 'Bhopal'])   # Bhopal students
+# # # Filter rows
+# print(df[df['Marks'] >= 85])        # High scorers
+# print(df[df['City'] == 'Bhopal'])   # Bhopal students
+# print( df[ (df['Marks']>=80) & (df['City']=='Indore') ] )  # Multiple conditions
+ 
+# def get_grade(x):
+#    if x >= 90:
+#        return 'A'
+#    elif x >= 75:
+#        return 'B'
+#    else:
+#        return 'C'
+   
+# df['Grade'] = df['Marks'].apply(get_grade)
+# print(df['Grade'])
+# print("-------------")
+# print(df)
+
+# GroupBy — like Excel pivot
+city_avg = df.groupby('City')['Marks'].mean()
+print(city_avg)
+
+# print(df.groupby('City')['Marks'].mean())
+
+# df.groupby('City')['Marks'].mean()
+ 
+# Read real CSV file
+df2 = pd.read_csv('students.csv')
+print(df2)
+df2['Name'] = df2['Name'].str.strip()
+
+print(df2)
+#Cleaning
+df2.to_csv('clean_output.csv', index=False)  # Save
