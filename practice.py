@@ -1115,3 +1115,11 @@ print(df.shape)          # (5, 4) — 5 rows, 4 columns
 print(df.head(3))        # First 3 rows
 print(df.dtypes)         # Data type of each column
 print(df.describe())     # Statistical summary
+
+# Select columns
+print("df['Name']: \n", df['Name'])                   # Single column → Series
+print(df[['Name', 'Marks']])        # Multiple → DataFrame
+ 
+# # Filter rows
+print(df[df['Marks'] >= 85])        # High scorers
+print(df[df['City'] == 'Bhopal'])   # Bhopal students
