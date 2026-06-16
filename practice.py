@@ -1189,17 +1189,34 @@ import matplotlib.pyplot as plt
 # plt.tight_layout()
 # plt.show()
 
+# import numpy as np
+
+# # SCATTER PLOT — relationship between two variables
+# study_hrs = np.random.uniform(2,10,50)
+# marks = study_hrs * 7 + np.random.normal(0,8,50)
+# marks = np.clip(marks, 30, 100)
+ 
+# plt.figure(figsize=(8,5))
+# plt.scatter(study_hrs, marks, c=marks, cmap='RdYlGn', s=100, alpha=0.8)
+# plt.colorbar(label='Marks')
+# plt.title('Study Hours vs Exam Marks')
+# plt.xlabel('Study Hours/Day')
+# plt.ylabel('Exam Marks')
+# plt.show()
+
+import seaborn as sns
+import pandas as pd
 import numpy as np
 
-# SCATTER PLOT — relationship between two variables
-study_hrs = np.random.uniform(2,10,50)
-marks = study_hrs * 7 + np.random.normal(0,8,50)
-marks = np.clip(marks, 30, 100)
- 
-plt.figure(figsize=(8,5))
-plt.scatter(study_hrs, marks, c=marks, cmap='RdYlGn', s=100, alpha=0.8)
-plt.colorbar(label='Marks')
-plt.title('Study Hours vs Exam Marks')
-plt.xlabel('Study Hours/Day')
-plt.ylabel('Exam Marks')
+np.random.seed(42)
+#Data
+df = pd.DataFrame({
+   'marks':       np.random.randint(40,100,100),
+   'study_hours': np.random.uniform(2,10,100),
+   'city':        np.random.choice(['Bhopal','Indore','Jabalpur'],100),
+   'gender':      np.random.choice(['Male','Female'],100)})
+# Histogram with KDE — see the distribution
+plt.figure(figsize=(10,4))
+sns.histplot(df['marks'], bins=20, kde=True, color='steelblue')
+plt.title('Distribution of Student Marks')
 plt.show()
