@@ -1174,17 +1174,32 @@ import matplotlib.pyplot as plt
 # plt.show()
 
 #Data
-cities = ['Bhopal','Indore','Jabalpur','Gwalior','Ujjain']
-students = [1200, 2800, 980, 850, 650]
-colors = ['#2196F3','#4CAF50','#FF9800','#9C27B0','#F44336']
+# cities = ['Bhopal','Indore','Jabalpur','Gwalior','Ujjain']
+# students = [1200, 2800, 980, 850, 650]
+# colors = ['#2196F3','#4CAF50','#FF9800','#9C27B0','#F44336']
 
-# BAR CHART — comparing categories 
-plt.figure(figsize=(9,5))
-bars = plt.bar(cities, students, color=colors, edgecolor='white',linewidth=1.5)
-plt.title('Students Enrolled per City')
-plt.ylabel('Number of Students')
-plt.xlabel('Cities')
-for bar,val in zip(bars,students):
-    plt.text(bar.get_x()+bar.get_width()/2, val+30, str(val), ha='center',fontweight='bold')
-plt.tight_layout()
+# # BAR CHART — comparing categories 
+# plt.figure(figsize=(9,5))
+# bars = plt.bar(cities, students, color=colors, edgecolor='white',linewidth=1.5)
+# plt.title('Students Enrolled per City')
+# plt.ylabel('Number of Students')
+# plt.xlabel('Cities')
+# for bar,val in zip(bars,students):
+#     plt.text(bar.get_x()+bar.get_width()/2, val+30, str(val), ha='center',fontweight='bold')
+# plt.tight_layout()
+# plt.show()
+
+import numpy as np
+
+# SCATTER PLOT — relationship between two variables
+study_hrs = np.random.uniform(2,10,50)
+marks = study_hrs * 7 + np.random.normal(0,8,50)
+marks = np.clip(marks, 30, 100)
+ 
+plt.figure(figsize=(8,5))
+plt.scatter(study_hrs, marks, c=marks, cmap='RdYlGn', s=100, alpha=0.8)
+plt.colorbar(label='Marks')
+plt.title('Study Hours vs Exam Marks')
+plt.xlabel('Study Hours/Day')
+plt.ylabel('Exam Marks')
 plt.show()
