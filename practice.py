@@ -1147,10 +1147,44 @@ print(city_avg)
 # df.groupby('City')['Marks'].mean()
  
 # Read real CSV file
-df2 = pd.read_csv('students.csv')
-print(df2)
-df2['Name'] = df2['Name'].str.strip()
+# df2 = pd.read_csv('students.csv')
+# print(df2)
+# df2['Name'] = df2['Name'].str.strip()
 
-print(df2)
-#Cleaning
-df2.to_csv('clean_output.csv', index=False)  # Save
+# print(df2)
+# #Cleaning
+# df2.to_csv('clean_output.csv', index=False)  # Save
+
+import matplotlib.pyplot as plt
+# import numpy as np
+
+#Data
+# months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec']
+# sales  = [45,52,48,61,58,72,69,75,68,82,90,95]  # in thousands
+
+# # LINE CHART — trends over time
+# plt.figure(figsize=(12,5))
+# plt.plot(months, sales, marker='o', color='steelblue', linewidth=2, markersize=8)
+# plt.fill_between(months, sales, alpha=0.15, color='steelblue')
+# plt.title('Monthly Sales 2024 (Rs. Thousands)', fontsize=14, fontweight='bold')
+# plt.xlabel('Month')
+# plt.ylabel('Sales (Rs. K)')
+# plt.grid(True, alpha=0.3)
+# plt.tight_layout()
+# plt.show()
+
+#Data
+cities = ['Bhopal','Indore','Jabalpur','Gwalior','Ujjain']
+students = [1200, 2800, 980, 850, 650]
+colors = ['#2196F3','#4CAF50','#FF9800','#9C27B0','#F44336']
+
+# BAR CHART — comparing categories 
+plt.figure(figsize=(9,5))
+bars = plt.bar(cities, students, color=colors, edgecolor='white',linewidth=1.5)
+plt.title('Students Enrolled per City')
+plt.ylabel('Number of Students')
+plt.xlabel('Cities')
+for bar,val in zip(bars,students):
+    plt.text(bar.get_x()+bar.get_width()/2, val+30, str(val), ha='center',fontweight='bold')
+plt.tight_layout()
+plt.show()
