@@ -26,7 +26,6 @@ iqr  = q3 - q1                     # Interquartile Range
 print(f'Std Deviation: {std:.2f}K  (most important spread measure)')
 print(f'IQR: {iqr}K  (Q1={q1}, Q3={q3})')
 
- 
 # Outlier detection using IQR (Interquartile Range)
 lower = q1 - 1.5*iqr
 upper = q3 + 1.5*iqr
