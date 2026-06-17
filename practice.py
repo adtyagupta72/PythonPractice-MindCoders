@@ -1216,7 +1216,18 @@ df = pd.DataFrame({
    'city':        np.random.choice(['Bhopal','Indore','Jabalpur'],100),
    'gender':      np.random.choice(['Male','Female'],100)})
 # Histogram with KDE — see the distribution
-plt.figure(figsize=(10,4))
-sns.histplot(df['marks'], bins=20, kde=True, color='steelblue')
-plt.title('Distribution of Student Marks')
+# plt.figure(figsize=(10,4))
+# sns.histplot(df['marks'], bins=20, kde=True, color='steelblue')
+# plt.title('Distribution of Student Marks')
+# plt.show()
+
+# Box plot — outliers and spread per group
+# sns.boxplot(data=df, x='city', y='marks', palette='Set2')
+# plt.title('Marks Distribution by City')
+# plt.show()
+
+# Correlation Heatmap — critical in data science
+plt.figure(figsize=(5,4))
+sns.heatmap(df[['marks','study_hours']].corr(),annot=True,cmap='coolwarm',vmin=-1,vmax=1)
+plt.title('Correlation Matrix')
 plt.show()
