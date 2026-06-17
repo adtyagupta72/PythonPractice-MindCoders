@@ -212,28 +212,53 @@ import numpy as np
 # print(f'Outliers: {outliers}')
 
 
+# import numpy as np
+# import seaborn as sns
+# import pandas as pd
+# import matplotlib.pyplot as plt
+# from scipy import stats
+ 
+# np.random.seed(42)
+# study  = np.random.uniform(2, 10, 60)
+# marks  = study * 8 + np.random.normal(0, 10, 60)
+# marks  = np.clip(marks, 30, 100)
+# absent = 10 - study + np.random.normal(0, 1, 60)
+ 
+# df = pd.DataFrame({'Study_Hours':study,'Marks':marks,'Absences':absent})
+ 
+# corr_matrix = df.corr()
+# print(corr_matrix.round(3))
+ 
+# plt.figure(figsize=(6,4))
+# sns.heatmap(corr_matrix, annot=True, cmap='coolwarm', vmin=-1, vmax=1, fmt='.2f')
+# plt.title('Correlation Matrix'); plt.show()
+ 
+# # Pearson correlation
+# r, p_value = stats.pearsonr(study, marks)
+# print(f'Study-Marks correlation: r={r:.3f}, p={p_value:.4f}')
+# print('Interpretation:', 'Strong positive' if r>0.7 else 'Moderate' if r>0.4 else 'Weak')
+
 import numpy as np
-import seaborn as sns
-import pandas as pd
 import matplotlib.pyplot as plt
-from scipy import stats
+from scipy.stats import norm
  
-np.random.seed(42)
-study  = np.random.uniform(2, 10, 60)
-marks  = study * 8 + np.random.normal(0, 10, 60)
-marks  = np.clip(marks, 30, 100)
-absent = 10 - study + np.random.normal(0, 1, 60)
+# Normal Distribution — the bell curve
+# Heights of Indian males: mean=165cm, std=7cm
+mean_h, std_h = 165, 7
  
-df = pd.DataFrame({'Study_Hours':study,'Marks':marks,'Absences':absent})
+# Probability of being taller than 175cm
+prob = 1 - norm.cdf(175, mean_h, std_h)
+print(f'P(height > 175cm) = {prob:.4f} = {prob*100:.1f}%')
  
-corr_matrix = df.corr()
-print(corr_matrix.round(3))
+# The 68-95-99.7 Rule
+print(f'68% of people: {mean_h-std_h:.0f}cm to {mean_h+std_h:.0f}cm')
+print(f'95% of people: {mean_h-2*std_h:.0f}cm to {mean_h+2*std_h:.0f}cm')
+print(f'99.7% of people: {mean_h-3*std_h:.0f}cm to {mean_h+3*std_h:.0f}cm')
  
-plt.figure(figsize=(6,4))
-sns.heatmap(corr_matrix, annot=True, cmap='coolwarm', vmin=-1, vmax=1, fmt='.2f')
-plt.title('Correlation Matrix'); plt.show()
- 
-# Pearson correlation
-r, p_value = stats.pearsonr(study, marks)
-print(f'Study-Marks correlation: r={r:.3f}, p={p_value:.4f}')
-print('Interpretation:', 'Strong positive' if r>0.7 else 'Moderate' if r>0.4 else 'Weak')
+# Outlier detection using Z-score (3-sigma rule)
+transactions = [250,310,280,5000,295,270,315,290,10000,305,285]
+mean_t = np.mean(transactions)
+std_t  = np.std(transactions)
+z_scores = [(x - mean_t)/std_t for x in transactions]
+flagged  = [x for x,z in zip(transactions,z_scores) if abs(z)>3]
+print(f'Flagged as outliers: {flagged}')  # [5000, 10000]
