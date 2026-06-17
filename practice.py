@@ -1227,7 +1227,11 @@ df = pd.DataFrame({
 # plt.show()
 
 # Correlation Heatmap — critical in data science
-plt.figure(figsize=(5,4))
-sns.heatmap(df[['marks','study_hours']].corr(),annot=True,cmap='coolwarm',vmin=-1,vmax=1)
-plt.title('Correlation Matrix')
-plt.show()
+# plt.figure(figsize=(5,4))
+# sns.heatmap(df[['marks','study_hours']].corr(),annot=True,cmap='coolwarm',vmin=-1,vmax=1)
+# plt.title('Correlation Matrix')
+# plt.show()
+
+# Pair plot — all relationships at once
+# sns.pairplot(df[['marks','study_hours']],diag_kind='kde')
+# plt.show()
