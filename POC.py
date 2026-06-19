@@ -313,39 +313,85 @@ import numpy as np
 # print('Result:', 'SIGNIFICANT — B is better!' if p_value<0.05 else 'NOT significant — could be random')
 
 
+# import numpy as np
+# import matplotlib.pyplot as plt
+# from sklearn.linear_model import LinearRegression
+# from sklearn.model_selection import train_test_split
+# from sklearn.metrics import mean_squared_error, r2_score
+ 
+# # Study hours vs exam marks
+# study = [1,2,3,4,5,6,7,8,9,10,2.5,4.5,6.5,8.5]
+# marks = [25,38,52,65,71,78,85,89,93,96,43,68,82,91]
+ 
+# X = np.array(study).reshape(-1,1)   # Must be 2D for sklearn
+# y = np.array(marks)
+ 
+# X_train,X_test,y_train,y_test = train_test_split(X,y,test_size=0.2,random_state=42)
+ 
+# model = LinearRegression()
+# model.fit(X_train, y_train)           # LEARNING happens here
+ 
+# print(f'Slope:     {model.coef_[0]:.2f}  (marks increase per study hour)')
+# print(f'Intercept: {model.intercept_:.2f} (marks at 0 study hours)')
+ 
+# y_pred = model.predict(X_test)
+# print(f'R² Score: {r2_score(y_test,y_pred):.4f} (1.0 = perfect)')
+# print(f'RMSE:     {mean_squared_error(y_test,y_pred)**0.5:.2f} marks average error')
+ 
+# # Predict new student
+# new_pred = model.predict([[7]])[0]
+# print(f'Student studying 7 hrs predicted marks: {new_pred:.1f}')
+ 
+# # Plot
+# plt.figure(figsize=(9,5))
+# plt.scatter(X,y,color='steelblue',s=100,alpha=0.8,label='Actual')
+# plt.plot(X,model.predict(X),color='red',linewidth=2,label='Predicted line')
+# plt.xlabel('Study Hours/Day'); plt.ylabel('Exam Marks')
+# plt.title('Linear Regression — Study Hours vs Marks')
+# plt.legend(); plt.grid(True,alpha=0.3); plt.show()
+
+import pandas as pd
 import numpy as np
-import matplotlib.pyplot as plt
-from sklearn.linear_model import LinearRegression
+from sklearn.linear_model import LogisticRegression
 from sklearn.model_selection import train_test_split
-from sklearn.metrics import mean_squared_error, r2_score
+from sklearn.metrics import accuracy_score, classification_report, confusion_matrix
+from sklearn.preprocessing import StandardScaler
+import seaborn as sns; import matplotlib.pyplot as plt
  
-# Study hours vs exam marks
-study = [1,2,3,4,5,6,7,8,9,10,2.5,4.5,6.5,8.5]
-marks = [25,38,52,65,71,78,85,89,93,96,43,68,82,91]
+# Generate student pass/fail dataset
+np.random.seed(42); n=300
+study   = np.random.uniform(1,10,n)
+attend  = np.random.uniform(40,100,n)
+tasks   = np.random.randint(0,11,n)
+score   = study*5 + attend*0.3 + tasks*2 + np.random.normal(0,8,n)
+passed  = (score > 65).astype(int)
  
-X = np.array(study).reshape(-1,1)   # Must be 2D for sklearn
-y = np.array(marks)
+df = pd.DataFrame({'study':study,'attend':attend,'tasks':tasks,'passed':passed})
+X = df[['study','attend','tasks']]
+y = df['passed']
  
 X_train,X_test,y_train,y_test = train_test_split(X,y,test_size=0.2,random_state=42)
  
-model = LinearRegression()
-model.fit(X_train, y_train)           # LEARNING happens here
+scaler = StandardScaler()
+Xtr = scaler.fit_transform(X_train)
+Xte = scaler.transform(X_test)
  
-print(f'Slope:     {model.coef_[0]:.2f}  (marks increase per study hour)')
-print(f'Intercept: {model.intercept_:.2f} (marks at 0 study hours)')
+model = LogisticRegression()
+model.fit(Xtr, y_train)
  
-y_pred = model.predict(X_test)
-print(f'R² Score: {r2_score(y_test,y_pred):.4f} (1.0 = perfect)')
-print(f'RMSE:     {mean_squared_error(y_test,y_pred)**0.5:.2f} marks average error')
+y_pred = model.predict(Xte)
+print(f'Accuracy: {accuracy_score(y_test,y_pred)*100:.1f}%')
+print(classification_report(y_test,y_pred,target_names=['Fail','Pass']))
+ 
+# Confusion matrix
+cm = confusion_matrix(y_test,y_pred)
+sns.heatmap(cm,annot=True,fmt='d',cmap='Blues',
+    xticklabels=['Fail','Pass'],yticklabels=['Fail','Pass'])
+plt.title('Confusion Matrix'); plt.show()
  
 # Predict new student
-new_pred = model.predict([[7]])[0]
-print(f'Student studying 7 hrs predicted marks: {new_pred:.1f}')
- 
-# Plot
-plt.figure(figsize=(9,5))
-plt.scatter(X,y,color='steelblue',s=100,alpha=0.8,label='Actual')
-plt.plot(X,model.predict(X),color='red',linewidth=2,label='Predicted line')
-plt.xlabel('Study Hours/Day'); plt.ylabel('Exam Marks')
-plt.title('Linear Regression — Study Hours vs Marks')
-plt.legend(); plt.grid(True,alpha=0.3); plt.show()
+new = scaler.transform([[7, 85, 9]])  # 7hrs study, 85% attend, 9 tasks
+pred = model.predict(new)[0]
+prob = model.predict_proba(new)[0]
+print(f'Prediction: {"PASS" if pred==1 else "FAIL"} | Probability: {prob[1]*100:.1f}%')
+
