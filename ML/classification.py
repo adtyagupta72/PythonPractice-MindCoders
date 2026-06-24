@@ -43,36 +43,55 @@
 # prob = model.predict_proba(new)[0]
 # print(f'Prediction: {"PASS" if pred==1 else "FAIL"} | Probability: {prob[1]*100:.1f}%')
 
-from sklearn.tree import DecisionTreeClassifier, export_text, plot_tree
-from sklearn.ensemble import RandomForestClassifier
-from sklearn.datasets import load_iris
+# from sklearn.tree import DecisionTreeClassifier, export_text, plot_tree
+# from sklearn.ensemble import RandomForestClassifier
+# from sklearn.datasets import load_iris
+# from sklearn.model_selection import train_test_split
+# from sklearn.metrics import accuracy_score
+# import matplotlib.pyplot as plt
+ 
+# iris = load_iris()
+# X,y  = iris.data, iris.target
+# X_train,X_test,y_train,y_test = train_test_split(X,y,test_size=0.2,random_state=42)
+ 
+# # Decision Tree
+# dt = DecisionTreeClassifier(max_depth=3,random_state=42)
+# dt.fit(X_train,y_train)
+# print(f'Decision Tree Accuracy: {accuracy_score(y_test,dt.predict(X_test))*100:.1f}%')
+# print(export_text(dt,feature_names=list(iris.feature_names)))  # See the rules!
+ 
+# # Visualise tree
+# # plt.figure(figsize=(14,6))
+# # plot_tree(dt,feature_names=iris.feature_names,class_names=iris.target_names,
+# #           filled=True,rounded=True,fontsize=9)
+# # plt.title('Decision Tree,  Iris Classification'); plt.show()
+ 
+# # Random Forest,  multiple trees vote
+# rf = RandomForestClassifier(n_estimators=100,random_state=42)
+# rf.fit(X_train,y_train)
+# print(f'Random Forest Accuracy: {accuracy_score(y_test,rf.predict(X_test))*100:.1f}%')
+ 
+# # Feature importance,  which inputs matter most?
+# import pandas as pd
+# imp = pd.Series(rf.feature_importances_,index=iris.feature_names).sort_values(ascending=False)
+# imp.plot(kind='bar',color='steelblue')
+# plt.title('Feature Importance'); plt.tight_layout(); plt.show()
+#python -m pip install xgboost
+from xgboost import XGBClassifier
+from sklearn.datasets import load_breast_cancer
 from sklearn.model_selection import train_test_split
 from sklearn.metrics import accuracy_score
-import matplotlib.pyplot as plt
+import pandas as pd
  
-iris = load_iris()
-X,y  = iris.data, iris.target
+data = load_breast_cancer()
+# print("Data:\n", data)
+X = pd.DataFrame(data.data, columns=data.feature_names)
+y = data.target
+ 
 X_train,X_test,y_train,y_test = train_test_split(X,y,test_size=0.2,random_state=42)
  
-# Decision Tree
-dt = DecisionTreeClassifier(max_depth=3,random_state=42)
-dt.fit(X_train,y_train)
-print(f'Decision Tree Accuracy: {accuracy_score(y_test,dt.predict(X_test))*100:.1f}%')
-print(export_text(dt,feature_names=list(iris.feature_names)))  # See the rules!
- 
-# Visualise tree
-plt.figure(figsize=(14,6))
-plot_tree(dt,feature_names=iris.feature_names,class_names=iris.target_names,
-          filled=True,rounded=True,fontsize=9)
-plt.title('Decision Tree,  Iris Classification'); plt.show()
- 
-# Random Forest,  multiple trees vote
-rf = RandomForestClassifier(n_estimators=100,random_state=42)
-rf.fit(X_train,y_train)
-print(f'Random Forest Accuracy: {accuracy_score(y_test,rf.predict(X_test))*100:.1f}%')
- 
-# Feature importance,  which inputs matter most?
-import pandas as pd
-imp = pd.Series(rf.feature_importances_,index=iris.feature_names).sort_values(ascending=False)
-imp.plot(kind='bar',color='steelblue')
-plt.title('Feature Importance'); plt.tight_layout(); plt.show()
+xgb = XGBClassifier(n_estimators=100, max_depth=4, learning_rate=0.1,
+                    random_state=42, eval_metric='logloss', verbosity=0)
+xgb.fit(X_train,y_train)
+print(f'XGBoost Accuracy: {accuracy_score(y_test,xgb.predict(X_test))*100:.2f}%')
+
