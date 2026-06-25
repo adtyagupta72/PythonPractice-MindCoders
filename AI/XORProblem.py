@@ -22,7 +22,7 @@ for epoch in range(10000):
     # Loss (Mean Squared Error)
     loss = np.mean((y - o)**2)
     losses.append(loss)
- 
+
     # Backward pass — compute gradients
     d_o = (o - y) * sigmoid_d(o)
     d_h = (d_o @ W2.T) * sigmoid_d(h)
