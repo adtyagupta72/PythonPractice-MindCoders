@@ -6,7 +6,7 @@ def sigmoid_d(x): return x * (1 - x)
 # XOR problem — a simple neural net test
 X = np.array([[0,0],[0,1],[1,0],[1,1]])
 y = np.array([[0],[1],[1],[0]])
- 
+
 np.random.seed(42)
 W1 = np.random.randn(2,4) * 0.5   # Input→Hidden weights
 W2 = np.random.randn(4,1) * 0.5   # Hidden→Output weights
