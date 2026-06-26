@@ -43,7 +43,7 @@ import numpy as np
 
 # records = [
 #     ['Name','Marks','City','Grade'],
-#     ['Rahul',85,'Bhopal','B'],
+#     ['Rahul',85,'Indore','B'],
 #     ['Priya',92,'Indore','A'],
 #     ['Amit',73,'Jabalpur','B'],
 # ]
@@ -52,16 +52,16 @@ import numpy as np
 
 
 
-import pandas as pd
+# import pandas as pd
  
-# Create DataFrame from dictionary
-data = {
-    'Name':   ['Rahul','Priya','Amit','Sneha','Vikram'],
-    'Age':    [22, 21, 23, 20, 24],
-    'Marks':  [85, 92, 78, 88, 73],
-    'City':   ['Bhopal','Indore','Bhopal','Jabalpur','Indore'],
-}
-df = pd.DataFrame(data)
+# # Create DataFrame from dictionary
+# data = {
+#     'Name':   ['Rahul','Priya','Amit','Sneha','Vikram'],
+#     'Age':    [22, 21, 23, 20, 24],
+#     'Marks':  [85, 92, 78, 88, 73],
+#     'City':   ['Indore','Indore','Indore','Jabalpur','Indore'],
+# }
+# df = pd.DataFrame(data)
  
 # Explore the data
 # print(df.shape)          # (5, 4) — 5 rows, 4 columns
@@ -75,7 +75,7 @@ df = pd.DataFrame(data)
  
 # Filter rows
 # print(df[df['Marks'] >= 85])        # High scorers
-# print(df[df['City'] == 'Bhopal'])   # Bhopal students
+# print(df[df['City'] == 'Indore'])   # Indore students
 # print(df[(df['Marks']>=80) & (df['City']=='Indore')])  # Multiple conditions
  
 # Add computed column
@@ -98,8 +98,8 @@ df = pd.DataFrame(data)
 # df2 = pd.read_csv('students.csv')
 # df2.to_csv('clean_output.csv', index=False)  # Save
 
-import matplotlib.pyplot as plt
-import numpy as np
+# import matplotlib.pyplot as plt
+# import numpy as np
  
 # Data
 # months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec']
@@ -117,7 +117,7 @@ import numpy as np
 # plt.show()
  
 # BAR CHART — comparing categories
-# cities = ['Bhopal','Indore','Jabalpur','Gwalior','Ujjain']
+# cities = ['Indore','Indore','Jabalpur','Gwalior','Ujjain']
 # students = [1200, 2800, 980, 850, 650]
 # colors = ['#2196F3','#4CAF50','#FF9800','#9C27B0','#F44336']
  
@@ -154,7 +154,7 @@ import numpy as np
 # df = pd.DataFrame({
 #     'marks':       np.random.randint(40,100,100),
 #     'study_hours': np.random.uniform(2,10,100),
-#     'city':        np.random.choice(['Bhopal','Indore','Jabalpur'],100),
+#     'city':        np.random.choice(['Indore','Indore','Jabalpur'],100),
 #     'gender':      np.random.choice(['Male','Female'],100)
 # })
  
@@ -448,80 +448,116 @@ import numpy as np
 # xgb.fit(X_train,y_train)
 # print(f'XGBoost Accuracy: {accuracy_score(y_test,xgb.predict(X_test))*100:.2f}%')
 
-from tensorflow import keras
-import tensorflow as tf
-import numpy as np
-import matplotlib.pyplot as plt
+# from tensorflow import keras
+# import tensorflow as tf
+# import numpy as np
+# import matplotlib.pyplot as plt
  
-# Load MNIST: 70,000 handwritten digit images (28x28 pixels, grayscale)
-(X_train,y_train),(X_test,y_test) = keras.datasets.mnist.load_data()
-print(f'Training: {X_train.shape} | Test: {X_test.shape}')
+# # Load MNIST: 70,000 handwritten digit images (28x28 pixels, grayscale)
+# (X_train,y_train),(X_test,y_test) = keras.datasets.mnist.load_data()
+# print(f'Training: {X_train.shape} | Test: {X_test.shape}')
  
-# Visualise samples
-plt.figure(figsize=(12,2))
-for i in range(12):
-    plt.subplot(1,12,i+1)
-    plt.imshow(X_train[i],cmap='gray'); plt.axis('off')
-    plt.title(str(y_train[i]),fontsize=8)
-plt.suptitle('Sample MNIST Digits'); plt.show()
+# # Visualise samples
+# plt.figure(figsize=(12,2))
+# for i in range(12):
+#     plt.subplot(1,12,i+1)
+#     plt.imshow(X_train[i],cmap='gray')
+#     plt.axis('off')
+#     plt.title(str(y_train[i]),fontsize=8)
+# plt.suptitle('Sample MNIST Digits')
+# plt.show()
  
-# Normalise: 0-255 → 0-1 (faster training, better convergence)
-X_train = X_train / 255.0
-X_test  = X_test  / 255.0
+# # Normalise: 0-255 → 0-1 (faster training, better convergence)
+# X_train = X_train / 255.0
+# X_test  = X_test  / 255.0
  
-# Flatten 28x28 → 784 (1D vector)
-X_train = X_train.reshape(-1, 784)
-X_test  = X_test.reshape(-1, 784)
+# # Flatten 28x28 → 784 (1D vector)
+# X_train = X_train.reshape(-1, 784)
+# X_test  = X_test.reshape(-1, 784)
  
-# Build neural network
-model = keras.Sequential([
-    keras.layers.Dense(512, activation='relu', input_shape=(784,)),
-    keras.layers.Dropout(0.2),           # Randomly disable 20% neurons to prevent overfitting
-    keras.layers.Dense(256, activation='relu'),
-    keras.layers.Dropout(0.2),
-    keras.layers.Dense(10,  activation='softmax')  # 10 output neurons for digits 0-9
-])
+# # Build neural network
+# model = keras.Sequential([
+#     keras.layers.Dense(512, activation='relu', input_shape=(784,)),
+#     keras.layers.Dropout(0.2),           # Randomly disable 20% neurons to prevent overfitting
+#     keras.layers.Dense(256, activation='relu'),
+#     keras.layers.Dropout(0.2),
+#     keras.layers.Dense(10,  activation='softmax')  # 10 output neurons for digits 0-9
+# ])
  
-model.summary()  # See architecture: layers, shapes, parameters
+# model.summary()  # See architecture: layers, shapes, parameters
  
-model.compile(
-    optimizer='adam',
-    loss='sparse_categorical_crossentropy',
-    metrics=['accuracy']
-)
+# model.compile(
+#     optimizer='adam',
+#     loss='sparse_categorical_crossentropy',
+#     metrics=['accuracy']
+# )
  
-# Train the model
-history = model.fit(
-    X_train, y_train,
-    epochs=10,
-    batch_size=128,
-    validation_split=0.1,
-    callbacks=[keras.callbacks.EarlyStopping(patience=3, restore_best_weights=True)]
-)
+# # Train the model
+# history = model.fit(
+#     X_train, y_train,
+#     epochs=10,
+#     batch_size=128,
+#     validation_split=0.1,
+#     callbacks=[keras.callbacks.EarlyStopping(patience=3, restore_best_weights=True)]
+# )
  
-# Evaluate
-test_loss, test_acc = model.evaluate(X_test, y_test, verbose=0)
-print(f'Test Accuracy: {test_acc*100:.2f}%')
+# # Evaluate
+# test_loss, test_acc = model.evaluate(X_test, y_test, verbose=0)
+# print(f'Test Accuracy: {test_acc*100:.2f}%')
  
-# Plot training history
-fig, axes = plt.subplots(1,2,figsize=(12,4))
-axes[0].plot(history.history['accuracy'],    label='Train')
-axes[0].plot(history.history['val_accuracy'],label='Validation')
-axes[0].set_title('Accuracy'); axes[0].legend()
-axes[1].plot(history.history['loss'],    label='Train')
-axes[1].plot(history.history['val_loss'],label='Validation')
-axes[1].set_title('Loss'); axes[1].legend()
-plt.tight_layout(); plt.show()
+# # Plot training history
+# fig, axes = plt.subplots(1,2,figsize=(12,4))
+# axes[0].plot(history.history['accuracy'],    label='Train')
+# axes[0].plot(history.history['val_accuracy'],label='Validation')
+# axes[0].set_title('Accuracy'); axes[0].legend()
+# axes[1].plot(history.history['loss'],    label='Train')
+# axes[1].plot(history.history['val_loss'],label='Validation')
+# axes[1].set_title('Loss'); axes[1].legend()
+# plt.tight_layout(); plt.show()
  
-# See predictions on test images
-predictions = model.predict(X_test[:15])
-pred_classes = np.argmax(predictions, axis=1)
+# # See predictions on test images
+# predictions = model.predict(X_test[:15])
+# pred_classes = np.argmax(predictions, axis=1)
  
-plt.figure(figsize=(15,3))
-for i in range(15):
-    plt.subplot(1,15,i+1)
-    plt.imshow(X_test[i].reshape(28,28),cmap='gray')
-    correct = pred_classes[i]==y_test[i]
-    plt.title(str(pred_classes[i]), color='green' if correct else 'red', fontsize=8)
-    plt.axis('off')
-plt.suptitle('Green=Correct  Red=Wrong'); plt.show()
+# plt.figure(figsize=(15,3))
+# for i in range(15):
+#     plt.subplot(1,15,i+1)
+#     plt.imshow(X_test[i].reshape(28,28),cmap='gray')
+#     correct = pred_classes[i]==y_test[i]
+#     plt.title(str(pred_classes[i]), color='green' if correct else 'red', fontsize=8)
+#     plt.axis('off')
+# plt.suptitle('Green=Correct  Red=Wrong'); plt.show()
+
+import nltk
+from nltk.tokenize import word_tokenize
+from nltk.corpus import stopwords
+from nltk.stem import WordNetLemmatizer
+ 
+nltk.download('punkt'); 
+nltk.download('stopwords'); 
+nltk.download('wordnet')
+nltk.download('punkt_tab')  # newer NLTK versions
+ 
+text = 'Students are learning Python for AI and Machine Learning in Indore!'
+ 
+# Step 1: Tokenise — split into words
+tokens = word_tokenize(text.lower())
+print('Tokens:', tokens)
+ 
+# Step 2: Remove stopwords (common words that add no meaning)
+stop = set(stopwords.words('english'))
+filtered = [w for w in tokens if w not in stop and w.isalpha()]
+print('After stopword removal:', filtered)
+ 
+# Step 3: Lemmatise — reduce to root form
+lemma = WordNetLemmatizer()
+final = [lemma.lemmatize(w) for w in filtered]
+print('After lemmatisation:', final)
+ 
+# TF-IDF — convert text to numbers for ML
+from sklearn.feature_extraction.text import TfidfVectorizer
+docs = ['Python is great for data science','Machine learning is amazing','AI is the future of technology']
+tfidf = TfidfVectorizer()
+matrix = tfidf.fit_transform(docs)
+print('TF-IDF shape:', matrix.shape)  # (3 docs, N unique words)
+print('Feature names:', tfidf.get_feature_names_out())

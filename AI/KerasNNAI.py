@@ -11,9 +11,11 @@ print(f'Training: {X_train.shape} | Test: {X_test.shape}')
 plt.figure(figsize=(12,2))
 for i in range(12):
     plt.subplot(1,12,i+1)
-    plt.imshow(X_train[i],cmap='gray'); plt.axis('off')
+    plt.imshow(X_train[i],cmap='gray'); 
+    plt.axis('off')
     plt.title(str(y_train[i]),fontsize=8)
-plt.suptitle('Sample MNIST Digits'); plt.show()
+plt.suptitle('Sample MNIST Digits'); 
+plt.show()
  
 # Normalise: 0-255 → 0-1 (faster training, better convergence)
 X_train = X_train / 255.0
